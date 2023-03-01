@@ -1,2 +1,22 @@
-# algorithm-py
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+## Array
+- `continuous`
+	- 아무리 긴 배열이라도 한 번의 연산으로 원하는 데이터에 바로 접근할 수 있음. **O(1)의 시간복잡도**를 가짐.
+- 4 bytes each
+
+## Linked List
+- `discontinous`
+	- **O(n)의 시간복잡도**
+- 중간에 데이터를 추가/삭제할 때 용이함
+- 8 bytes each [ key + value = node ]
+
+## 제한 조건 보는 법
+
+> 시간복잡도(`Big-O`) 에 데이터의 크기(`n`)을 넣어서 나온 값이 **10^8 이 넘으면** 시간 제한을 초과할 가능성이 있음
+
+> 즉, 제한 조건으로 내가 선택할 수 있는 알고리즘이 뭔지 확인할 수 있다.
+- [1 <= n <= 10^5], [1 <= n <= 10^4]
+
+	-> nlogn, n, logn, 1 으로 풀으라는 뜻
+- [1 <= n <= 10^3]
+
+	-> n^2 로 풀어도 됨
