@@ -83,3 +83,26 @@ class LinkedList(object):
 * [1472-design-browser-history](https://github.com/solpinetree/algorithm-py/blob/3c558ed237ed75e6ee0e10a1f1c0578bfffde55f/1472-design-browser-history/1472-design-browser-history.py)
 
 </details>
+
+
+## Queue
+- python의 `deque` 는 `Linked List` 로 구현되어 있기 때문에, `List`로 구현된 queue와 달리 **enqueue**, **dequeue** 의 시간복잡도 모두 O(1) 이다.
+- `deque` = doubly ended queue
+- **`BFS`** 에서 많이 쓰임
+<details>
+<summary> 기본 코드</summary>
+
+```python
+from collections import deque
+queue = deque()
+queue.append(1)
+queue.popleft()
+```
+</details>
+
+<details>
+<summary> 이용했던 문제들 </summary>
+
+
+
+</details>
