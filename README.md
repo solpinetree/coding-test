@@ -1,3 +1,14 @@
+* [제한 조건 보는 법](#제한_조건_보는_법)
+
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+
 ## 제한 조건 보는 법
 
 > 시간복잡도(`Big-O`) 에 데이터의 크기(`n`)을 넣어서 나온 값이 **10^8 이 넘으면** 시간 제한을 초과할 가능성이 있음
@@ -11,6 +22,9 @@
 	-> n^2 로 풀어도 됨
 	
 
+&nbsp;
+&nbsp;
+
 ## 접근 방법
 
 1.  직관적으로 생각하기
@@ -23,6 +37,8 @@
 	- 자료구조에 따라 선택할 수 있는 알고리즘을 문제에 적용
 
 
+&nbsp;
+&nbsp;
 
 ## Array
 - `continuous`
@@ -35,6 +51,9 @@
 
 </details>
 
+
+&nbsp;
+&nbsp;
 
 
 ## Linked List
@@ -85,6 +104,11 @@ class LinkedList(object):
 </details>
 
 
+&nbsp;
+&nbsp;
+
+
+
 ## Queue
 - python의 `deque` 는 `Linked List` 로 구현되어 있기 때문에, `List`로 구현된 queue와 달리 **enqueue**, **dequeue** 의 시간복잡도 모두 O(1) 이다.
 - `deque` = doubly ended queue
@@ -106,3 +130,21 @@ queue.popleft()
 
 
 </details>
+
+
+&nbsp;
+&nbsp;
+
+## Stack
+<details>
+<summary> 기본 코드</summary>
+
+```python
+stack = []
+# push O(1)
+stack.append(1)
+# pop O(1)
+stack.pop()
+```
+</details>
+
