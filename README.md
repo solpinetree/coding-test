@@ -1,6 +1,9 @@
-* [제한 조건 보는 법](#제한_조건_보는_법)
-
-
+* [제한 조건 보는 법](#제한-조건-보는-법)
+* [접근 방법](#접근-방법)
+* [Array](#array)
+* [Linked List](#linked-list)
+* [Queue](#queue)
+* [Stack](#stack)
 
 &nbsp;
 &nbsp;
@@ -146,5 +149,12 @@ stack.append(1)
 # pop O(1)
 stack.pop()
 ```
+</details>
+
+<details>
+<summary> 이용했던 문제들 </summary>
+
+
+
 </details>
 
