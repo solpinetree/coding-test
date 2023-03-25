@@ -1,8 +1,11 @@
 from collections import deque
 
-class Solution:
-    def isValid(self, s: str) -> bool:
-        
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
         if(len(s)%2 == 1):
             return False;
         
