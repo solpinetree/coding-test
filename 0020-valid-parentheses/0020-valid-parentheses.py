@@ -1,5 +1,3 @@
-from collections import deque
-
 class Solution(object):
     def isValid(self, s):
         """
@@ -12,16 +10,16 @@ class Solution(object):
         d['['] = ']'
         d['{'] = '}'
         
-        q = deque()
+        stack = []
         for c in s:
             if c in ['(','[','{']:
-                q.append(c)
+                stack.append(c)
             else:
                 try:
-                    if d[q.pop()] != c:
+                    if d[stack.pop()] != c:
                         return False
                 except:
                     return False
-        if len(q) != 0:
+        if len(stack) != 0:
             return False
         return True
