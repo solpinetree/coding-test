@@ -35,3 +35,17 @@
 	<li><code>s</code> consists of parentheses only <code>'()[]{}'</code>.</li>
 </ul>
 </div>
+
+---
+&nbsp;
+1. 문제 이해
+* `괄호 유효성` 문제는 stack을 사용하는 유형
+* list가 주어진 문제는 O(n)으로 푸는 게 가장 효율적임
+&nbsp;
+2. 접근 방법
+* 괄호의 개수가 짝수여야 함
+* 여는 괄호가 먼저와야 함
+&nbsp;
+3. 코드 설계
+4. 코드 구현
+&bnsp;
