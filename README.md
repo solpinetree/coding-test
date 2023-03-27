@@ -154,6 +154,8 @@ stack.pop()
 <details>
 <summary> 이용했던 문제들 </summary>
 
+* [0020-valid-parentheses](0020-valid-parentheses/0020-valid-parentheses.py)
+
 
 
 </details>
