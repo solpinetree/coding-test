@@ -6,8 +6,10 @@ answer 배열을 반환하는 함수를 구현하시오.
 
 Constraints:
 
-1 <= temperatures.length <= 10^5
-30 <= temperatures[i] <= 100
+* 1 <= temperatures.length <= 10^5
+* 30 <= temperatures[i] <= 100 
+&nbsp;
+
 -> 10^5 이라는 제약 조건은 O(n^2)으로 풀면 안됨을 의미함
 
 ---
