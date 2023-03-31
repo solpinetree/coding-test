@@ -6,15 +6,14 @@ class Solution(object):
         """
         res = []
         stack = []
+        i = 0
         
-        for i in reversed(range(len(temperatures))):
-            temp = temperatures.pop()
-            
+        for temp in temperatures[::-1]:
             if stack:
                 while stack and stack[-1][0]<=temp:
                     stack.pop()
                 if stack:
-                    res.append(stack[-1][1]-i)
+                    res.append(i-stack[-1][1])
                 else:
                     res.append(0)
                 stack.append([temp,i])
@@ -22,6 +21,7 @@ class Solution(object):
             else:
                 res.append(0)
                 stack.append([temp, i])
+            i = i + 1
                                  
         return res[::-1]
             
