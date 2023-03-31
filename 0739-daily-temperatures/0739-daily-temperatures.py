@@ -6,14 +6,12 @@ class Solution(object):
         """
         res = list(range(len(temperatures)))
         stack = []
-        i = 0
         
-        for temp in temperatures:
-            while stack and stack[-1][0]<temp:
+        for day, temp in enumerate(temperatures):
+            while stack and stack[-1][0] < temp:
                 idx = stack.pop()[1]
-                res[idx] = i-idx
-            stack.append([temp,i])  
-            i = i + 1
+                res[idx] = day-idx
+            stack.append([temp, day])  
             
         for temp in stack:
             res[temp[1]] = 0
