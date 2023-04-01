@@ -7,14 +7,14 @@ class Solution(object):
         res = list(range(len(temperatures)))
         stack = []
         
-        for day, temp in enumerate(temperatures):
-            while stack and stack[-1][0] < temp:
-                idx = stack.pop()[1]
-                res[idx] = day-idx
-            stack.append([temp, day])  
+        for cur_day, cur_temp in enumerate(temperatures):
+            while stack and stack[-1][1] < cur_temp:
+                prev_day = stack.pop()[0]
+                res[prev_day] = cur_day - prev_day
+            stack.append([cur_day, cur_temp])  
             
         for temp in stack:
-            res[temp[1]] = 0
+            res[temp[0]] = 0
                                  
         return res
             
