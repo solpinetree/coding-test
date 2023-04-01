@@ -4,7 +4,7 @@ class Solution(object):
         :type temperatures: List[int]
         :rtype: List[int]
         """
-        res = list(range(len(temperatures)))
+        res = [0] * len(temperatures)
         stack = []
         
         for cur_day, cur_temp in enumerate(temperatures):
@@ -12,9 +12,7 @@ class Solution(object):
                 prev_day = stack.pop()[0]
                 res[prev_day] = cur_day - prev_day
             stack.append([cur_day, cur_temp])  
-            
-        for temp in stack:
-            res[temp[0]] = 0
+    
                                  
         return res
             
