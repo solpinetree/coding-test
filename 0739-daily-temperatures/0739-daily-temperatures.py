@@ -11,7 +11,7 @@ class Solution(object):
             while stack and stack[-1][1] < cur_temp:
                 prev_day = stack.pop()[0]
                 res[prev_day] = cur_day - prev_day
-            stack.append([cur_day, cur_temp])  
+            stack.append((cur_day, cur_temp))  
     
                                  
         return res
