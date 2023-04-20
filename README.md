@@ -169,3 +169,16 @@ stack.pop()
 * 저장, 삭제, 검색의 시간복잡도는 모두 O(1)
 * 파이썬에서 hash table은 딕셔너리로 구현되어 있음
 
+<details>
+<summary> 이용했던 문제들 </summary>
+
+* [0001-two-sum](0001-two-sum/0001-two-sum.py)
+
+
+
+</details>
+
+&nbsp;
+&nbsp;
+
+
