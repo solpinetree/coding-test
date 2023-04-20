@@ -4,7 +4,7 @@
 * [Linked List](#linked-list)
 * [Queue](#queue)
 * [Stack](#stack)
-* [Hash Table & Dictionary](#Hash-Table-&-Dictionary)
+* [Hash Table & Dictionary](#hash-table--dictionary)
 
 &nbsp;
 &nbsp;
