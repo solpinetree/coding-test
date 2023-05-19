@@ -173,7 +173,7 @@ stack.pop()
 <summary> 이용했던 문제들 </summary>
 
 * [0001-two-sum](0001-two-sum/0001-two-sum.py)
-
+* [0128-longest-consecutive-sequence](0128-longest-consecutive-sequence/0128-longest-consecutive-sequence.py)
 
 
 </details>
