@@ -11,8 +11,6 @@ class Solution(object):
             if val in temp:
                 if key - temp[val] <= k:
                     return True
-                else:
-                    del temp[val]
             temp[val] = key
             
         return False
