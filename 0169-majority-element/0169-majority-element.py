@@ -18,6 +18,8 @@ class Solution(object):
             if temp[value] > max:
                 max = temp[value]
                 max_value = value
+                if max > len(nums)/2 :
+                    return max_value
         
         return max_value
         
