@@ -5,9 +5,9 @@
 * [Queue](#queue)
 * [Stack](#stack)
 * [Hash Table & Dictionary](#hash-table--dictionary)
-* [트리 순회(Tree-Traversal](https://github.com/solpinetree/algorithm-py/main/README.md#%ED%8A%B8%EB%A6%AC-%EC%88%9C%ED%9A%8Ctree-traversal)
-     * [bfs](https://github.com/solpinetree/algorithm-py/main/README.md#bfs) 
-     * [dfs](https://github.com/solpinetree/algorithm-py/main/README.md#dfs) 
+* [트리 순회(Tree-Traversal](https://github.com/solpinetree/algorithm-py/blob/main/README.md#%ED%8A%B8%EB%A6%AC-%EC%88%9C%ED%9A%8Ctree-traversal)
+     * [bfs](https://github.com/solpinetree/algorithm-py/blob/main/README.md#bfs) 
+     * [dfs](https://github.com/solpinetree/algorithm-py/blob/main/README.md#dfs) 
 
 
 &nbsp;
