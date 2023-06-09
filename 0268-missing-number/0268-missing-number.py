@@ -4,15 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        
-        nums_dict = dict()
+        n = len(nums) 
+        total = n*((n+1)/2.0) 
         
         for num in nums:
-            nums_dict[num] = num
+            total = total - num
         
-        for num in range(len(nums)):
-            if num not in nums_dict:
-                return num
-        
-        return len(nums)
+        return int(total)
         
