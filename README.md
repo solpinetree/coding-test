@@ -5,6 +5,10 @@
 * [Queue](#queue)
 * [Stack](#stack)
 * [Hash Table & Dictionary](#hash-table--dictionary)
+* [트리 순회(Tree-Traversal](https://github.com/solpinetree/algorithm-py/edit/main/README.md#%ED%8A%B8%EB%A6%AC-%EC%88%9C%ED%9A%8Ctree-traversal)
+     * [bfs](https://github.com/solpinetree/algorithm-py/edit/main/README.md#bfs) 
+     * [dfs](https://github.com/solpinetree/algorithm-py/edit/main/README.md#dfs) 
+
 
 &nbsp;
 &nbsp;
@@ -181,4 +185,87 @@ stack.pop()
 &nbsp;
 &nbsp;
 
+## 트리 순회(Tree Traversal)
+
+- 트리 탐색이라고도 불림
+- 트리의 각 노드를 방문하는 과정
+- 모든 노드를 한 번씩 방문 해야 하므로 완전 탐색이라고도 불림
+- 순회 방법
+	- 너비 우선 탐색(BFS)
+	- 깊이 우선 탐색(DFS)
+
+### BFS
+<details>
+<summary> 기본 코드 </summary>
+
+```python
+def bfs(root):
+	visited = []
+	if root is None:
+		return 0
+	q = deque()
+	q.append(root)
+	while q:
+		cur_node = q.popleft()
+		visited.append(cur_node.value)
+	
+	if cur_node.left:
+		q.append(cur_node.left)
+	if cur_node.right:
+		q.append(cur_node.right)
+	return visited
+```
+</details>
+
+### DFS
+<details>
+<summary> 기본 코드 - by recursion </summary>
+
+```python
+def dfs(root):
+	if root is None:
+		return
+	dfs(root.left)
+	dfs(root.right)
+```
+</details>
+
+<details>
+<summary> 전위순회(preorder) 기본 코드 - by recursion </summary>
+
+```python
+def preorder(cur_node):
+	if cur_node is None:
+		return
+	print(cur_node.value)
+	preorder(cur_node.left)
+	preorder(cur_node.right) 
+```
+</details>
+
+<details>
+<summary> 중위순회(inorder) 기본 코드 - by recursion </summary>
+
+```python
+def inorder(cur_node):
+	if cur_node is None:
+		return
+	inorder(cur_node.left)
+	print(cur_node.value)
+	inorder(cur_node.right) 
+```
+</details>
+
+<details>
+<summary> 후위순회(postorder) 기본 코드 - by recursion </summary>
+
+```python
+def postorder(cur_node):
+	if cur_node is None:
+		return
+	postorder(cur_node.left)
+	postorder(cur_node.right) 
+	print(cur_node.value)
+```
+</details>
 
