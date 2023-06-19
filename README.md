@@ -217,6 +217,17 @@ def bfs(root):
 ```
 </details>
 
+<details>
+<summary> 이용했던 문제들 </summary>
+
+* [0104-maximum-depth-of-binary-tree](https://github.com/solpinetree/algorithm-py/blob/e2e83779c9ef965b5fd97c1aecf5bb3a5b4ee69f/0104-maximum-depth-of-binary-tree/0104-maximum-depth-of-binary-tree.py)
+
+
+</details>
+
+&nbsp;
+&nbsp;
+
 ### DFS
 <details>
 <summary> 기본 코드 - by recursion </summary>
@@ -273,6 +284,7 @@ def postorder(cur_node):
 <summary> 이용했던 문제들 </summary>
 
 * [0236-lowest-common-ancestor-of-a-binary-tree](0236-lowest-common-ancestor-of-a-binary-tree/0236-lowest-common-ancestor-of-a-binary-tree.py)
+* [0104-maximum-depth-of-binary-tree](https://github.com/solpinetree/algorithm-py/blob/478750507b9137ca03cfe56d4231d283e650ba74/0104-maximum-depth-of-binary-tree/0104-maximum-depth-of-binary-tree.py)
 
 
 </details>
