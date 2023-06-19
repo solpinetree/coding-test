@@ -10,25 +10,14 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        # bfs - level order 문제
-        max_depth = 0
-        if root is None:
-            return max_depth
+        # dfs 로 풀어봄 - bfs(level order)로도 가능
+        if root == None:
+            return 0
         
-        q = deque()
-        q.append((root,1))
+        left = self.maxDepth(root.left)
+        right = self.maxDepth(root.right)
         
-        while q:
-            cur_node, cur_depth = q.popleft()
-
-            if cur_node.left:
-                q.append((cur_node.left, cur_depth+1))
-            if cur_node.right:
-                q.append((cur_node.right, cur_depth+1))
-                
-            max_depth = max(cur_depth, max_depth)
-          
-        return max_depth
+        return max(left, right) + 1
         
         
         
