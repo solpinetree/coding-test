@@ -269,3 +269,13 @@ def postorder(cur_node):
 ```
 </details>
 
+<details>
+<summary> 이용했던 문제들 </summary>
+
+* [0236-lowest-common-ancestor-of-a-binary-tree](0236-lowest-common-ancestor-of-a-binary-tree/0236-lowest-common-ancestor-of-a-binary-tree.py)
+
+
+</details>
+
+&nbsp;
+&nbsp;
