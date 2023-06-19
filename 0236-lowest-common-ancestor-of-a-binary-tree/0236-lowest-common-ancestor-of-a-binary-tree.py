@@ -13,13 +13,13 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        # bfs 문제
+        # dfs 문제
         if root == None:
             return None
         
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p , q)
-        
+
         if root == p or root == q:
             return root
         elif left and right:
