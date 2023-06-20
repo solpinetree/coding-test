@@ -14,6 +14,10 @@ class Solution {
             if(curCnt >= max){
                 max = curCnt;
                 max_value = num;
+                
+                if(max > nums.length/2){
+                    return max_value;
+                }
             }
         }
         
