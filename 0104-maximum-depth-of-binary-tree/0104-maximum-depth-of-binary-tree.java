@@ -16,6 +16,7 @@
 class Solution {
     public int maxDepth(TreeNode root) {
         
+        // dfs
         if(root == null)
             return 0;
         
