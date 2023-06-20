@@ -10,8 +10,8 @@ class Solution {
         
         for(int num : nums) {
             int cnt = 1;
-            if(map.get(num-1) == null){
-                while(map.get(num+1) != null){
+            if(!map.containsKey(num-1)){
+                while(map.containsKey(num+1)){
                     cnt++;
                     num++;
                 }
