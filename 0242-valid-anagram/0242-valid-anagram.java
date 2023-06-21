@@ -8,20 +8,17 @@ class Solution {
         char[] s_arr = s.toCharArray();
         char[] t_arr = t.toCharArray();
         
-        HashMap<Character, Integer> map = new HashMap<>();
+        int[] cnt = new int[100];
         
         for(char c : s_arr){
-            int c_cnt = map.get(c) == null ? 0 : map.get(c);
-            map.put(c, c_cnt + 1);
+            cnt[c-'a']++;
         }
         
         for(char c : t_arr){
-            int c_cnt = map.get(c) == null ? 0 : map.get(c);
-            if(c_cnt == 0){
+            if(cnt[c-'a']==0){
                 return false;
-            }else{
-                map.put(c, c_cnt - 1);
             }
+            cnt[c-'a']--;
         }
         
         return true;
