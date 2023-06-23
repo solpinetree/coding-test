@@ -1,5 +1,7 @@
 * [제한 조건 보는 법](#제한-조건-보는-법)
 * [접근 방법](#접근-방법)
+* [문자열](#문자열)
+     * [진법바꾸기](#진법-바꾸기) 
 * [Array](#array)
 * [Linked List](#linked-list)
 * [Queue](#queue)
@@ -44,6 +46,26 @@
 	- 대놓고 특정 자료구조와 알고리즘을 묻는 문제도 많음
 	- 자료구조에 따라 선택할 수 있는 알고리즘을 문제에 적용
 
+
+&nbsp;
+&nbsp;
+
+## 문자열 
+### 진법 바꾸기
+> Integer.parseInt(String s, int radix)
+
+> Integer.toString(int v, int radix)
+
+> Long.parseLong(String s, int radix)
+
+> Long.toStirng(long v, int radix) 
+
+-> 기존의 `radix` 매개변수 없는 메소드들은 모두 10진수를 기준으로 한다. 
+* 예시
+```java
+int n = 10000;
+String hex = Integer.toString(n, 16);
+```
 
 &nbsp;
 &nbsp;
