@@ -76,6 +76,7 @@ String hex = Integer.toString(n, 16);
 <summary> 이용했던 문제들 </summary>
 
 * [문자열 다루기 기본](프로그래머스/lv1/12918. 문자열 다루기 기본)
+* [신규 아이디 추천](프로그래머스/lv1/72410. 신규 아이디 추천/신규 아이디 추천.java)
 
 </details>
 
