@@ -1,7 +1,8 @@
 * [제한 조건 보는 법](#제한-조건-보는-법)
 * [접근 방법](#접근-방법)
 * [문자열](#문자열)
-     * [진법바꾸기](#진법-바꾸기) 
+     * [진법바꾸기](#진법-바꾸기)
+     * [정규표현식](#정규-표현식)
 * [Array](#array)
 * [Linked List](#linked-list)
 * [Queue](#queue)
@@ -66,6 +67,18 @@
 int n = 10000;
 String hex = Integer.toString(n, 16);
 ```
+
+&nbsp;
+
+### 정규 표현식
+
+<details>
+<summary> 이용했던 문제들 </summary>
+
+* [문자열 다루기 기본](프로그래머스/lv1/12918. 문자열 다루기 기본)
+
+</details>
+
 
 &nbsp;
 &nbsp;
