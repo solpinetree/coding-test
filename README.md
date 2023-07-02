@@ -112,6 +112,13 @@ Arrays.sort(words, (v1, v2) -> v1.length() - v2.length());
 ```
 </details>
 
+<details>
+<summary> 이용했던 문제들 </summary>
+
+* [문자열 내림차순으로 배치하기](프로그래머스/lv1/12917. 문자열 내림차순으로 배치하기/문자열 내림차순으로 배치하기.java)
+
+</details>
+
 &nbsp;
 &nbsp;
 
