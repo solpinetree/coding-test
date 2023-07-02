@@ -3,6 +3,7 @@
 * [문자열](#문자열)
      * [진법바꾸기](#진법-바꾸기)
      * [정규표현식](#정규-표현식)
+* [정렬](#정렬)
 * [Array](#array)
 * [Linked List](#linked-list)
 * [Queue](#queue)
@@ -80,6 +81,36 @@ String hex = Integer.toString(n, 16);
 
 </details>
 
+
+&nbsp;
+&nbsp;
+
+## 정렬
+
+
+- 직접 기준 정하기: 정렬 메소드들은 하나의 매개변수를 받는다.
+     - `Arrays.sort(Comparator<T> c)`
+     - `Collections.sort(Comparator<T> c)`
+     - `stream.sorted(Comparator<T> c)`
+
+<details>
+<summary> 기본 코드 </summary>
+
+```java
+// arr 배열을 내림차순으로 정렬한 배열을 반환하는 예제 코드
+int[] reversed = Arrays.stream(arr)
+		.boxed()
+		.sorted((v1, v2) -> v2 - v1)
+		.mapToInt(Integer::intValue)
+		.toArray();
+```
+
+```java
+// 문자열을 길이 순서대로 정렬
+String[] words = ["java", "algorithm", "programming"];
+Arrays.sort(words, (v1, v2) -> v1.length() - v2.length());
+```
+</details>
 
 &nbsp;
 &nbsp;
