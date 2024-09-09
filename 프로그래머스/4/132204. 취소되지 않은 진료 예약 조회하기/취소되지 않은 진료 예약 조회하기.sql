@@ -1,0 +1,16 @@
+-- 2022년 4월 13일 취소되지 않은 CS 진료 예약 내역 조회
+-- 진료예약번호(APNT_NO), 환자이름(PT_NAME), 환자번호(PT_NO), 진료과코드(MCDP_CD), 의사이름(DR_NAME), 진료예약일시(APNT_YMD)
+-- APNT_YMD 
+WITH APNT AS(
+    SELECT *
+    FROM APPOINTMENT
+    WHERE DATE(APNT_YMD) = DATE('2022-04-13')
+    AND APNT_CNCL_YN = 'N'
+)
+
+
+SELECT a.APNT_NO, p.PT_NAME, p.PT_NO, d.MCDP_CD, d.DR_NAME, a.APNT_YMD
+FROM PATIENT p, DOCTOR d, APNT a
+WHERE p.PT_NO = a.PT_NO
+AND a.MDDR_ID = d.DR_ID
+ORDER BY APNT_YMD
