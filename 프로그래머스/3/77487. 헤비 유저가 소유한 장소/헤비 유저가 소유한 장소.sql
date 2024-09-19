@@ -1,0 +1,14 @@
+-- 공간을 둘 이상 등록한 사람 = 헤비 유저
+-- 헤비유저가 등록된 공간 ID, NAME, HOST_ID ORDER BY ID
+WITH HAEVI_USER AS(
+    SELECT COUNT(*) AS CNT
+)
+
+
+SELECT
+ID,
+NAME,
+HOST_ID
+FROM PLACES o
+WHERE (SELECT COUNT(*) FROM PLACES p WHERE p.HOST_ID = o.HOST_ID) >= 2
+ORDER BY ID
