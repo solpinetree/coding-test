@@ -16,7 +16,7 @@ def solution(friends, gifts):
         got[t] += 1
         
     # 선물 지수 계산 (준 선물 - 받은 선물)
-    gift_degree = {friend: give[friend] - got[friend] for friend in friends}
+    gift_point = {friend: give[friend] - got[friend] for friend in friends}
     
     answer = 0
     
@@ -28,7 +28,7 @@ def solution(friends, gifts):
                 continue
             # 서로 주고받은 선물이 같은 경우
             if gift_dict[f].count(t) == gift_dict[t].count(f):
-                if gift_degree[f] > gift_degree[t]:
+                if gift_point[f] > gift_point[t]:
                     temp += 1
             # 한쪽이 더 많은 선물을 준 경우
             elif gift_dict[f].count(t) > gift_dict[t].count(f):
