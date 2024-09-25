@@ -1,38 +1,32 @@
-def date_after(date, after):
-    date_year, date_month, date_day = [int(date) for date in date.split('.')]
+def add_months_to_date(start_date, months_to_add):
+    year, month, day = [int(part) for part in start_date.split('.')]
     
-    for _ in range(int(after)):
-        if date_month == 12:
-            date_year += 1
-            date_month = 1
+    for _ in range(int(months_to_add)):
+        if month == 12:
+            year += 1
+            month = 1
         else:
-            date_month += 1
+            month += 1
     
-    return f'{date_year}.{date_month}.{date_day}'
+    return f'{year}.{month:02d}.{day:02d}'
 
-def is_date1_before_date2(date1, date2):
-    date1_year, date1_month, date1_day = [int(date) for date in date1.split('.')]
-    date2_year, date2_month, date2_day = [int(date) for date in date2.split('.')]
+def is_date_before_or_equal(date1, date2):
+    formatted_date1 = date1.replace('.', '')
+    formatted_date2 = date2.replace('.', '')
     
-    if date1_year == date2_year:
-        if date1_month == date2_month:
-            if date1_day <= date2_day:
-                return True
-        elif date1_month < date2_month:
-            return True
-    elif date1_year < date2_year:
-        return True
-    
-    return False
-    
+    return formatted_date1 <= formatted_date2
+
 def solution(today, terms, privacies):
-    answer = []
+    result = []
 
-    terms_dict = {term.split()[0] : term.split()[1] for term in terms}
+    # {약관 : 유효기간} 딕셔너리 생성
+    terms_duration_map = {term.split()[0]: term.split()[1] for term in terms}
     
-    for i in range(len(privacies)):
-        due, term = privacies[i].split()
-        if is_date1_before_date2(date_after(due, terms_dict[term]), today):
-            answer.append(i+1)
+    for idx, privacy in enumerate(privacies):
+        privacy_date, privacy_term = privacy.split()
+        expiration_date = add_months_to_date(privacy_date, terms_duration_map[privacy_term])
+        
+        if is_date_before_or_equal(expiration_date, today):
+            result.append(idx + 1)
     
-    return answer
+    return result
