@@ -11,19 +11,13 @@ class Solution(object):
             "(" : ")",
         }
         
-        stack = [s[0]]
+        stack = []
         
-        for i in range(1, len(s)):
-            if s[i] not in dict_p.keys():
-                if len(stack) == 0:
-                    return False
-                if (stack[-1] in dict_p.keys()) and (dict_p[stack[-1]] == s[i]):
-                    stack.pop()
-                    continue
-            stack.append(s[i])
-       
-        if len(stack) != 0:
-            return False
-        
-        return True
+        for p in s:
+            if p in dict_p.keys():
+                stack.append(dict_p[p])
+            elif not stack or stack.pop() != p:
+                return False
+            
+        return not stack
         
