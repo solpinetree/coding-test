@@ -1,33 +1,16 @@
 from collections import deque
 
 def solution(priorities, location):
-    answer = 0
-    
-    q = deque()
-    process = deque()
-    
-    for i, p in enumerate(priorities):
-        q.append(p)
-        if i == location:
-            process.append(1)
-        else:
-            process.append(0)
+    q = deque((p, i) for i, p in enumerate(priorities))
+    iter_count = 0
 
-    print(q)
-    max_p = max(q)
-    iter = 1
     while q:
-        max_p = max(q)
-        tmp = q.popleft()
-        cur_process = process.popleft()
-        if tmp < max_p:
-            q.append(tmp)
-            process.append(cur_process)
-            continue
-            
-        if cur_process == 1:
-            return iter
-        
-        iter += 1
-    
-    return iter
+        cur = q.popleft()
+        if any(cur[0] < other[0] for other in q):
+            q.append(cur)
+        else:
+            iter_count += 1
+            if cur[1] == location:
+                return iter_count
+
+    return iter_count
