@@ -4,17 +4,20 @@ class Solution(object):
         :type temperatures: List[int]
         :rtype: List[int]
         """
-        res = [0] * len(temperatures)
+        n = len(temperatures)
+        answer = [0] *  n
         stack = []
         
-        for cur_day, cur_temp in enumerate(temperatures):
-            while stack and stack[-1][1] < cur_temp:
-                prev_day = stack.pop()[0]
-                res[prev_day] = cur_day - prev_day
-            stack.append((cur_day, cur_temp))  
-    
-                                 
-        return res
+        for i in range(n):
+            while stack and temperatures[i] > temperatures[stack[-1]]:
+                prev_idx = stack.pop()
+                answer[prev_idx] = i - prev_idx
+            stack.append(i)
+        
+        while stack:
+            idx = stack.pop()
+            answer[idx] = 0
             
-                
-            
+        return answer
+        
+        
