@@ -5,28 +5,17 @@ class Solution(object):
         :type popped: List[int]
         :rtype: bool
         """
-        # pushed : [1, 2, 3, 4, 5]
-        # popped_stack = [1, 2, 3, 5, 4]
-        # push(1)
-        # push(2)
-        # push(3)
-        # push(4)
-        # pop(2)
         
         stack = []
-        popped_stack = popped[::-1]
+        pop_idx = 0 # popped 리스트의 현재 인덱스를 추적
         
-        for i in range(len(pushed)):
-            while stack and stack[-1] == popped_stack[-1]:
+        for value in pushed:
+            stack.append(value) # 스택에 요소 추가
+            # 스택의 top이 pop 리스트의 현재 요소와 일치할 경우 pop
+            while stack and stack[-1] == popped[pop_idx]:
                 stack.pop()
-                popped_stack.pop()
-            stack.append(pushed[i])
-        # stack : [1, 2, 3, 5]
-        # popped_stack = [1, 2, 3, 5]
+                pop_idx += 1
         
-        if stack != popped_stack:
-            return False
-        
-        return True
+        return not stack
         
         
