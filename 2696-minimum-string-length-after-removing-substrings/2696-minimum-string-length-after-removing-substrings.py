@@ -6,10 +6,13 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        stack = []
         
-        while s.find('AB') != -1 or s.find('CD') != -1:
-            s = s.replace('AB', '')
-            s = s.replace('CD', '')
-         
-        return len(s)
+        for char in s:
+            if stack and ((stack[-1] == 'A' and char == 'B') or (stack[-1] == 'C' and char == 'D')):
+                stack.pop()
+            else:
+                stack.append(char)
+                
+        return len(stack)
         
