@@ -23,8 +23,7 @@ class MinStack(object):
         """
         :rtype: None
         """
-        pop_n = self.stack.pop()
-        if pop_n == self.min_stack[-1]:
+        if self.stack.pop() == self.min_stack[-1]:
             self.min_stack.pop()
         
 
