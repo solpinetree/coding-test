@@ -1,9 +1,11 @@
 class MinStack(object):
     
     global stack
+    global min
 
     def __init__(self):
         self.stack = []
+        self.min_stack = []
 
     def push(self, val):
         """
@@ -11,12 +13,20 @@ class MinStack(object):
         :rtype: None
         """
         self.stack.append(val)
+        
+        # push the current val onto min_stack
+        # if it is the smallest seen so far
+        if not self.min_stack or val <= self.min_stack[-1]:
+            self.min_stack.append(val)
 
     def pop(self):
         """
         :rtype: None
         """
-        self.stack.pop()
+        pop_n = self.stack.pop()
+        if pop_n == self.min_stack[-1]:
+            self.min_stack.pop()
+        
 
     def top(self):
         """
@@ -29,7 +39,7 @@ class MinStack(object):
         """
         :rtype: int
         """
-        return min(self.stack)
+        return self.min_stack[-1]
         
 
 
