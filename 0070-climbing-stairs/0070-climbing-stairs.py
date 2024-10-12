@@ -1,3 +1,5 @@
+from collections import deque
+
 class Solution(object):
     # it takes n steps to reach the top
     # each time you can either climb 1 or 2 steps
@@ -8,20 +10,17 @@ class Solution(object):
         :rtype: int
         """
         
-        # Base cases
         if n == 1:
             return 1
         if n == 2:
             return 2
         
-        # Initialize the first two steps
-        prev2 = 1  # 1 step to reach step 1
-        prev1 = 2  # 2 steps to reach step 2
+        q = deque([(2, 2), (3, 3)]) # (step, number_of_ways)
         
-        # Iterate from step 3 to n
-        for i in range(3, n + 1):
-            current = prev1 + prev2  # Current step count is sum of the previous two steps
-            prev2 = prev1  # Move the previous two steps forward
-            prev1 = current
-        
-        return prev1  # The last computed step count is the result
+        for i in range(4, n + 1):
+            step2 = q.popleft() # i - 2
+            step1 = q[0] # i - 1
+            current_ways = step1[1] + step2[1]
+            q.append((i, current_ways))
+            
+        return q[-1][1]
