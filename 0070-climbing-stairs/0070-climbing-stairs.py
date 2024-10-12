@@ -1,5 +1,3 @@
-from collections import deque
-
 class Solution(object):
     # it takes n steps to reach the top
     # each time you can either climb 1 or 2 steps
@@ -15,12 +13,12 @@ class Solution(object):
         if n == 2:
             return 2
         
-        q = deque([(2, 2), (3, 3)]) # (step, number_of_ways)
-        
-        for i in range(4, n + 1):
-            step2 = q.popleft() # i - 2
-            step1 = q[0] # i - 1
-            current_ways = step1[1] + step2[1]
-            q.append((i, current_ways))
+        prev2 = 1
+        prev1 = 2
             
-        return q[-1][1]
+        for i in range(3, n + 1):
+            current = prev2 + prev1
+            prev2 = prev1
+            prev1 = current
+            
+        return prev1
