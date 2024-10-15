@@ -15,6 +15,7 @@ class Solution(object):
         
         q = deque([(0, 0, 1)]) # row, col, path_length
         visited = set()
+        visited.add((0, 0))
         
         while q:
             row, col, path_length = q.popleft()
