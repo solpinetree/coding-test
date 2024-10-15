@@ -1,7 +1,3 @@
-# '1' : land
-# '0' : water
-# return the number of islands
-# island : surrounded by water, connecting adjacent lands horizontally or vertically
 class Solution(object):
     def numIslands(self, grid):
         """
@@ -9,29 +5,28 @@ class Solution(object):
         :rtype: int
         """
         
-        visited = set()
-        
-        def dfs(graph, cur_v):
-            if cur_v in visited:
-                return
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # 상하좌우 방향 벡터
 
-            visited.add(cur_v)
-
-            if cur_v[0] > 0 and graph[cur_v[0]-1][cur_v[1]] == '1':
-                dfs(graph, (cur_v[0]-1, cur_v[1]))
-            if cur_v[0] < len(graph) - 1 and graph[cur_v[0]+1][cur_v[1]] == '1':
-                dfs(graph, (cur_v[0]+1, cur_v[1]))
-            if cur_v[1] > 0 and graph[cur_v[0]][cur_v[1]-1] == '1':
-                dfs(graph, (cur_v[0], cur_v[1]-1))
-            if cur_v[1] < len(graph[0]) - 1 and graph[cur_v[0]][cur_v[1]+1] == '1':
-                dfs(graph, (cur_v[0], cur_v[1]+1))
+        def dfs(row, col):
+            stack = [(row, col)]
+            while stack:
+                cur_row, cur_col = stack.pop()
+                if grid[cur_row][cur_col] == '0':
+                    continue
+                
+                grid[cur_row][cur_col] = '0'  # 방문한 노드를 '0'으로 변경하여 방문 표시
+                
+                for dr, dc in directions:
+                    new_row, new_col = cur_row + dr, cur_col + dc
+                    if 0 <= new_row < len(grid) and 0 <= new_col < len(grid[0]) and grid[new_row][new_col] == '1':
+                        stack.append((new_row, new_col))
         
         answer = 0
         
         for row in range(len(grid)):
-            for col in range(len(grid[row])):
-                if grid[row][col] == '1' and (row, col) not in visited:
-                    dfs(grid, (row, col))
-                    answer +=1
+            for col in range(len(grid[0])):
+                if grid[row][col] == '1':
+                    dfs(row, col)
+                    answer += 1
         
         return answer
