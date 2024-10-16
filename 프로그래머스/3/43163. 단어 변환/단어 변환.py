@@ -1,8 +1,10 @@
 from collections import deque
+
+def can_transform(s1, s2):
+    # 두 문자열이 하나의 문자만 다르면 True 반환
+    return sum(c1 != c2 for c1, c2 in zip(s1, s2)) == 1
+
 def solution(begin, target, words):
-    answer = 0
-    n = len(begin)
-    
     if target not in words:
         return 0
     
@@ -10,22 +12,15 @@ def solution(begin, target, words):
     visited = set()
     visited.add(begin)
     
-    # hit -> hut -> dut -> gut -> got -> gog -> cog
-    # 
     while q:
-        s, cnt = q.popleft()
+        current, count = q.popleft()
         
-        if s == target:
-            return cnt
+        if current == target:
+            return count
             
-        for idx in range(n):
-            for word in words:
-                if s[idx] != word[idx]:
-                    new_s = s[:idx] + word[idx]
-                    if idx < n - 1:
-                        new_s += s[idx+1:]
-                    if new_s in words and new_s not in visited:
-                        q.append((new_s, cnt + 1))
-                        visited.add(new_s)
+        for word in words:
+            if word not in visited and can_transform(current, word):
+                visited.add(word)
+                q.append((word, count+1))
     
     return 0
