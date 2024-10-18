@@ -1,18 +1,14 @@
-# [0]
-# [0, 1]
-# [0, 1, 2]
-# [0, 1, 2, 3]
-# [0, 1, 2, 3, 4]
+# 대각선 방향으로 한 칸 오른쪽 or 왼쪽
+# 거쳐간 숫자의 최댓값을 return -> dp 문제 
 def solution(triangle):
-    answer = triangle[0][0]
+    for i in range(1, len(triangle)):
+        triangle[i][0] += triangle[i-1][0]
+        triangle[i][-1] += triangle[i-1][-1]
+        
+    for i in range(2, len(triangle)):
+        for j in range(1, i):
+            triangle[i][j] += max(triangle[i-1][j-1], triangle[i-1][j])
     
-    for row in range(1, len(triangle)):
-        for col in range(row + 1):
-            if col == 0:
-                triangle[row][col] += triangle[row-1][col]
-            elif col == row:
-                triangle[row][col] += triangle[row-1][col-1]
-            else:
-                triangle[row][col] += max(triangle[row-1][col-1], triangle[row-1][col])
     
-    return max(triangle[len(triangle)-1])
+    
+    return max(triangle[-1])
