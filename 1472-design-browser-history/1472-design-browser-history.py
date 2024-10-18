@@ -1,33 +1,57 @@
-class ListNode(object):
-    def __init__(self, val=0, next=None, prev=None):
-        self.val = val
-        self.next = next
+class Node:
+    def __init__(self, value=0, prev=None, next=None):
+        self.value = value
         self.prev = prev
-
+        self.next = next
+        
 class BrowserHistory(object):
 
     def __init__(self, homepage):
-        self.head = self.current = ListNode(val=homepage)
+        """
+        :type homepage: str
+        """
+        self.head = Node(homepage)
+        self.current = self.head
+        self.tail = self.head
         
 
     def visit(self, url):
-        self.current.next = ListNode(val=url, prev=self.current)
-        self.current = self.current.next
-        return None
+        """
+        :type url: str
+        :rtype: None
+        """
+        new_node = Node(url)
+        new_node.prev = self.current
+        self.current.next = new_node
+        self.tail = new_node
+        self.current = new_node
         
 
     def back(self, steps):
-        while steps > 0 and self.current.prev != None:
-            steps -= 1
-            self.current = self.current.prev
-        return self.current.val
-        
-        
+        """
+        :type steps: int
+        :rtype: str
+        """
+        for _ in range(steps):
+            if self.current.prev != None:
+                self.current = self.current.prev
+            else:
+                break
+            
+        return self.current.value
     def forward(self, steps):
-        while steps > 0 and self.current.next != None:
-            steps -= 1
-            self.current = self.current.next
-        return self.current.val
+        """
+        :type steps: int
+        :rtype: str
+        """
+        for _ in range(steps):
+            if self.current.next != None:
+                self.current = self.current.next
+            else:
+                break
+            
+        return self.current.value
+        
 
 
 # Your BrowserHistory object will be instantiated and called as such:
