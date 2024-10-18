@@ -1,4 +1,3 @@
-from collections import deque
 class Solution(object):
     # it takes n steps to reach the top
     # each time you can either climb 1 or 2 steps
@@ -9,18 +8,12 @@ class Solution(object):
         :rtype: int
         """
         
-        if n == 1:
-            return 1
-        if n == 2:
-            return 2
+        dp = [-1] * (n+1)
         
-        q = deque([(1, 1), (2, 2)])
+        dp[0] = 1
+        dp[1] = 1
         
-        for i in range(3, n+1):
-            stairs, ways = q.popleft()
-            q.append((i, ways + q[0][1]))
+        for i in range(2, n+1):
+            dp[i] = dp[i-2] + dp[i-1] 
             
-        while q:
-            answer = q.popleft()[1]
-            
-        return answer
+        return dp[n]
