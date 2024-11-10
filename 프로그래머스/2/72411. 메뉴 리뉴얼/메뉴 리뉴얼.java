@@ -7,11 +7,12 @@ class Solution {
     // course : 코스요리를 구성하는 단품메뉴들의 갯수
     // return : 새로 추가하게 될 코스요리의 메뉴 구성, 오름차순으로 정렬
     // 만약 가장 많이 함께 준비된 메뉴 구성이 여러 개 -> 모두 return 
-    private void generate(String order, String comb, HashSet<String> set) {
-        set.add(comb);
-        char lastWord = comb.charAt(comb.length()-1);
-        for(int i = order.indexOf(lastWord) + 1; i < order.length(); i++) { 
-            generate(order, comb + order.charAt(i), set);
+     private void generateCombinations(String order, String comb, HashSet<String> set, int start) {
+        if (comb.length() > 1) {
+            set.add(comb);
+        }
+        for (int i = start; i < order.length(); i++) {
+            generateCombinations(order, comb + order.charAt(i), set, i + 1);
         }
     }
     
@@ -19,14 +20,14 @@ class Solution {
         HashMap<String, Integer> map = new HashMap<>();
         
         for(String order : orders) {
-            HashSet<String> set = new HashSet<>();
+            HashSet<String> combinations = new HashSet<>();
             char[] arr = order.toCharArray();
             Arrays.sort(arr);
             for(char c : arr) {
-                generate(new String(arr), "" + c, set);   
+                generateCombinations(new String(arr), "", combinations, 0); 
             }
             
-            for(String comb : set) {
+            for(String comb : combinations) {
                 map.put(comb, map.getOrDefault(comb, 0) + 1);
             }
         }
