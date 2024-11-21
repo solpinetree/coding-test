@@ -1,53 +1,41 @@
 import java.util.*;
 
-class Solution {
-    private int remove(PriorityQueue<Integer> targetPq, HashMap<Integer, Integer> targetMap) {
-        int remove = 0;
-        while (!targetPq.isEmpty()) {
-            remove = targetPq.poll();
-            if (targetMap.get(remove) > 0) { // 유효한 값인지 확인
-                targetMap.put(remove, targetMap.get(remove) - 1);
+class Solution { 
+    private int remove(PriorityQueue<Integer> pq, HashMap<Integer, Integer> map) {
+        while(!pq.isEmpty()) {
+            int remove = pq.poll();
+            if (map.get(remove) > 0) {
+                map.put(remove, map.get(remove) - 1);
                 return remove;
             }
         }
         return 0;
     }
-
+    
     public int[] solution(String[] operations) {
-        PriorityQueue<Integer> pqMin = new PriorityQueue<>();
-        PriorityQueue<Integer> pqMax = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> minQ = new PriorityQueue<>();
+        PriorityQueue<Integer> maxQ = new PriorityQueue<>((a, b) -> b - a);
         HashMap<Integer, Integer> countMap = new HashMap<>();
-
-        for (String op : operations) {
-            String[] parts = op.split(" ");
-            String command = parts[0];
-            int data = Integer.parseInt(parts[1]);
-
-            if (command.equals("D")) {
-                if (data == 1 && !pqMax.isEmpty()) { // 최댓값 삭제
-                    remove(pqMax, countMap);
-                } else if (data == -1 && !pqMin.isEmpty()) { // 최솟값 삭제
-                    remove(pqMin, countMap);
-                }
-            } else { // 삽입 연산
-                pqMin.add(data);
-                pqMax.add(data);
+        
+        for(String op : operations) {
+            String command = op.split(" ")[0];
+            int data = Integer.parseInt(op.split(" ")[1]);
+            
+            if(command.equals("I")) {
                 countMap.put(data, countMap.getOrDefault(data, 0) + 1);
+                minQ.add(data); maxQ.add(data);
+            } else {
+                if(data == 1) remove(maxQ, countMap);
+                else remove(minQ, countMap);
             }
         }
-
-        // 남은 값을 정리하여 결과 반환
-        while (!pqMin.isEmpty() && countMap.get(pqMin.peek()) == 0) {
-            pqMin.poll();
-        }
-        while (!pqMax.isEmpty() && countMap.get(pqMax.peek()) == 0) {
-            pqMax.poll();
-        }
-
-        if (pqMin.isEmpty() || pqMax.isEmpty()) {
-            return new int[]{0, 0};
-        }
-
-        return new int[]{pqMax.peek(), pqMin.peek()};
+        
+        int max = 0; int min = 0;
+        while(!maxQ.isEmpty() && countMap.get(maxQ.peek()) <= 0) maxQ.poll();
+        if(!maxQ.isEmpty()) max = maxQ.poll();
+        while(!minQ.isEmpty() && countMap.get(minQ.peek()) <= 0) minQ.poll();
+        if(!minQ.isEmpty()) min = minQ.poll();
+        
+        return new int[]{max, min};
     }
 }
